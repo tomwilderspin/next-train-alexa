@@ -5,7 +5,11 @@ provider:
   runtime: nodejs4.3
   defaults:
     stage: dev
-    region: us-east-1
+    region: eu-west-1
+  custom:
+    webpackIncludeModules: true
 functions:
   nextTrain:
-    handler: handler.run
+    handler: nextTrain.run
+plugins:
+  - serverless-webpack
