@@ -1,0 +1,11 @@
+
+service: next-train
+provider:
+  name: aws
+  runtime: nodejs4.3
+  defaults:
+    stage: dev
+    region: us-east-1
+functions:
+  nextTrain:
+    handler: handler.run
