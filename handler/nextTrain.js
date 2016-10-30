@@ -4,18 +4,20 @@ export default function(options) {
   const { buildSpeechResponse } = options;
 
   return {
-    welcomeResponse: getWelcomeResponse(buildResponse);
+    welcomeResponse: welcomeResponse(buildSpeechResponse)
   };
 }
 
-const getWelcomeResponse = buildSpeechResponse => callback => {
+const welcomeResponse = buildSpeechResponse => callback => {
 
-  const speechResponse = buildSpeechResponse(
-    'Welcome',
-    'Welcome to Next Train please ask me when the next train is coming',
-    'Please tell me which destination you like to travel from and to for example' +
-        ' when is the next train from leeds to london'
-  );
+  const response = {
+    title: 'Welcome',
+    outputText: 'Welcome to Next Train Please ask me when next train is due',
+    repromptText: 'Please tell me which destination you like to travel from and to, for example' +
+        'when is the next train from leeds to london',
+    endSession: false
+  }
 
-  callback({}, speechResponse);
+  callback({}, buildSpeechResponse(response));
+
 };

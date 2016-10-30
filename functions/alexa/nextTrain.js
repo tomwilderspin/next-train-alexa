@@ -1,11 +1,10 @@
 
 import alexaSession from '../../lib/alexaSession';
 
-import nextTrain from '../../handler/nextTrain';
+//import nextTrain from '../../handler/nextTrain';
 
 const sessionConfig = {
-  echoAppId = process.env.ECHO_APP_ID,
-  lauchRequestHandler:
+  echoAppId: process.env.ECHO_APP_ID,
 };
 
 export const run =  (event, context, callback) => {
