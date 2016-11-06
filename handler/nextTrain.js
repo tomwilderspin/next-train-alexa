@@ -4,7 +4,8 @@ export default function(options) {
   const { buildSpeechResponse } = options;
 
   return {
-    welcomeResponse: welcomeResponse(buildSpeechResponse)
+    welcomeResponse: welcomeResponse(buildSpeechResponse),
+    sessionEndResponse: sessionEndResponse(buildSpeechResponse)
   };
 }
 
@@ -19,5 +20,14 @@ const welcomeResponse = buildSpeechResponse => callback => {
   }
 
   callback({}, buildSpeechResponse(response));
-
 };
+
+const sessionEndResponse = buildSpeechResponse => callback => {
+  const response = {
+    title: 'Session Ended',
+    outputText: 'Thank you. Have a nice day',
+    endSession: true
+  };
+
+  callback({}, buildSpeechResponse(response));
+}
